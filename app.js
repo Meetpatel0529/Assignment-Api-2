@@ -24,6 +24,11 @@ const app = express();
 // Middleware to parse JSON bodies
 app.use(express.json());
 
+// Root route
+app.get('/', (req, res) => {
+    res.send('Welcome to the Recipe API! 🎉');
+});
+
 // Mount routes
 app.use('/api/recipes', recipeRoutes);
 app.use('/api/users', userRoutes);
@@ -31,5 +36,5 @@ app.use('/api/users', userRoutes);
 // Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(Server is running on port ${PORT});
 });
