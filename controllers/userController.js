@@ -7,7 +7,7 @@
  */
 
 const User = require('../models/User');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
@@ -32,7 +32,7 @@ exports.registerUser = async (req, res) => {
     const newUser = new User({
       username,
       email,
-      password // Do NOT hash here, let `User.js` handle it
+      password // Do NOT hash here, let User.js handle it
     });
     await newUser.save();
     
@@ -116,4 +116,3 @@ module.exports = {
   loginUser: exports.loginUser,
   logoutUser: exports.logoutUser
 };
-
